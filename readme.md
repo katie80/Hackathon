@@ -45,4 +45,5 @@ npm install --save express body-parser mongoose
 mkdir data
 mongod --dbpath ./data
 ```
+With your mongo data base running in one terminal, open another with command-n, navigate to your local Know Your Code Full-stack folder and run server.js
 
