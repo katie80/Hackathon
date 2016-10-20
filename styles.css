@@ -1,0 +1,29 @@
+.container {
+	background-color: burlywood;
+	height: 100vh;
+	width: 100%;
+}
+
+.answers {
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 200px;
+	width: 200px;
+	margin: 10px;
+}
+
+#answers_div {
+	text-align: center;
+}
+
+#answers1 {
+	float: left;
+}
+
+#answers1 {
+	display: inline;
+}
+
+#answers1 {
+	float: right;
+}
