@@ -35,6 +35,10 @@ option = {content: "string",
 }
 ```
 ## Instructions for setting up Know Your Code full-stack application development environment
+1. initialize node application
+2. install express, body-parser and mongoose
+3. make a directory for data
+4. start mongodb poitnted to data directory
 ```bash
 npm init
 npm install --save express body-parser mongoose
