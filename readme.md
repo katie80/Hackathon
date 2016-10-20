@@ -34,3 +34,11 @@ option = {content: "string",
            "isCorrect": false}]
 }
 ```
+## Instructions for setting up Know Your Code full-stack application development environment
+```bash
+npm init
+npm install --save express body-parser mongoose
+mkdir data
+mongod --dbpath ./data
+```
+
