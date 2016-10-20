@@ -34,4 +34,20 @@
 	</div>
 	
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+ 
+<script>
+$(function() {
+    $.get('/levels', function(res) {
+    	$('#level_div').text(res.title);
+    	$('#question').text(res.question);
+    	$('#answer1').text(res.options[0]);
+    	$('#answer2').text(res.options[1]);
+    	$('#answer3').text(res.options[2]);
+    });
+});
+</script>
 </html>

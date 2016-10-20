@@ -3,7 +3,7 @@ body {
 }
 
 #question_div {
-	background-color: blue;
+	background-color: white;
 	margin-top: 50px;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-	background-color: purple;
+	background-color: white;
 	margin: auto;
 	margin-top: 5%;
 	width: 50%;
