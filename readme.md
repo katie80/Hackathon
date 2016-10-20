@@ -2,8 +2,8 @@
  - By Burlywood
 
 ##Level subjects:
-- HTML
-- CSS
+- HTML ✅
+- CSS ✅
 - JavaScript
 - jQuery
 - Node
