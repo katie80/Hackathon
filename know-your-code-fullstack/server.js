@@ -1,4 +1,7 @@
-// Requires express, mongoose, body-parser
+// Requires fs, express, mongoose, body-parser
+
+// Initialize file system
+var fs = require("fs");
 
 // Initialize express
 var express = require("express");
@@ -42,22 +45,6 @@ app.get("/", (req, res) => {
 app.get("/levels", (req, res) => {
 	Level.find({}, (err, levels) => {
 		// Update Levels array for storage as JSON
-		for(var i in levels){
-			var levelJSON = {
-				_id: levels[i]._id,
-				content: {
-					title: levels[i].title,
-					question: levels[i].question,
-					isRendered: levels[i].isRendered,
-					options: levels[i].options
-				}
-			}
-			// If the Level dosnt exist, add it to the Levels object
-			if(!Levels[levelJSON._id]){
-				Levels[levelJSON._id] = levelJSON.content;
-			}
-		}
-		console.log(JSON.stringify(Levels));
 		res.send(levels);
 	});
 });
@@ -67,16 +54,44 @@ app.post("/levels/add", (req, res) => {
 	var newLevel = new Level({
 		title: req.body.title,
 	    question: req.body.question,
-	    isRendered: req.body.isRendered,
-	    options: req.body.options
+	    options: req.body["options[]"]
 	});
 
 	newLevel.save((err) => {
 		if(err){return};
+		
 	});
 
-	console.log(newLevel.isRendered);
-	res.send();
+	Level.find({}, (err, levels) => {
+		// Update Levels array for storage as JSON
+		for(var i in levels){
+			var levelJSON = {
+				_id: levels[i]._id,
+				content: {
+					title: levels[i].title,
+					question: levels[i].question,
+					options: [
+						levels[i].options[0],
+						levels[i].options[1],
+						levels[i].options[2]
+					]
+				}
+			}
+			// If the Level dosnt exist, add it to the Levels object
+			if(!Levels[levelJSON._id]){
+				Levels[levelJSON._id] = levelJSON.content;
+			}
+		}
+
+		fs.writeFile("levels.json", JSON.stringify(Levels), function(err) {
+		    if(err) {
+		        return console.log(err);
+		    }
+
+		    console.log("The levels file was saved!");
+		    res.send(Levels);
+		}); 
+	});
 });
 
 // Express Stack: Error Handling 

@@ -5,6 +5,11 @@
 	<title>Know Your Code</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Poiret+One" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -22,26 +27,27 @@
 		<!-- Enter Question here. Sent as text -->
 		<div id="question_div">
 			<p id="question">
-				Which is the result of &lt;h2&gt; Header &lt;/h2&gt;
+				test questions 100
 			</p>
 		</div>
-
-		<input type="checkbox" id="render-checkbox" value="0">Render HTML?
 
 		<div class="row" id="answers_div">
 			<!-- Enter Option 0 here. Sent as html -->
 			<div class="answers col-md-4" id="answer1">
-				<h3> Header </h3>
+				<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>h2</span><span style='color:#a65700; '>></span> Header <span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>h2</span><span style='color:#a65700; '>></span>
+</pre>
 			</div>
 
 			<!-- Enter Option 1 here. Sent as html -->
 			<div class="answers col-md-4" id="answer2">
-				<h2> Header </h2>
+				<pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>p</span><span style='color:#a65700; '>></span> hello world <span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>p</span><span style='color:#a65700; '>></span>
+</pre>
 			</div>
 
 			<!-- Enter Option 2 here. Sent as html -->
 			<div class="answers col-md-4" id="answer3">
-				<h1> Header </h1>
+				<pre style='color:#000000;background:#ffffff;'><span style='color:#808030; '>&lt;</span>script<span style='color:#808030; '>></span> console<span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>log</span><span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>hello world</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>&lt;</span><span style='color:#808030; '>/</span>script<span style='color:#808030; '>></span>
+</pre>
 			</div>
 		</div>
 
@@ -50,59 +56,42 @@
 		<button class="btn" id="edit_question_btn">Edit Level</button>
 
 	</div>
-<<<<<<< HEAD
-=======
 
   <footer class="footer"><div id="fuse" class="fuse"> </div><div class="score pull-left">1000</div>Coded with <span class="icon heart">love</span> by <span class="icon burlywood">Burlywood</span><div id="timer" class="timer pull-right"></div></footer>
->>>>>>> origin/master
-	
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
  
 <script>
 $(function() {
 	var currentLevel = 0;
 	var isRendered = false;
 
-    $.get('/levels', function(res) {
-    	$('#level_div').text(res[currentLevel].title);
-    	$('#question').text(res[currentLevel].question);
-
-    	if(res[currentLevel].isRendered){
-    		$('#answer1').html(res[currentLevel].options[0]);
-	    	$('#answer2').html(res[currentLevel].options[1]);
-	    	$('#answer3').html(res[currentLevel].options[2]);
-    	} else {
-    		$('#answer1').text(res[currentLevel].options[0]);
-	    	$('#answer2').text(res[currentLevel].options[1]);
-	    	$('#answer3').text(res[currentLevel].options[2]);
-    	}
-   	});
+  //   $.get('/levels', function(res) {
+  //   	$('#level_div').text(res[currentLevel].title);
+  //   	$('#question').text(res[currentLevel].question);
+		// $('#answer1').html(res[currentLevel].options[0]);
+  //   	$('#answer2').html(res[currentLevel].options[1]);
+  //   	$('#answer3').html(res[currentLevel].options[2]);
+  //  	});
 
     $('.answers').click(function(){
     	$(this).css("background-color","grey");
     });
 
-    $('#render-checkbox').click(function(){
-    	isRendered = !isRendered;
-    });
-
     $('#add_question_btn').click(function(){
-		var levelData = {
+    	var options = [
+    		$('#answer1').html(),
+			$('#answer2').html(),
+			$('#answer3').html()
+    	];
+
+    	var levelData = {
 			title:$('#level_div').text(),
 			question:$('#question').text(),
-			isRendered: isRendered,
-			options:[
-				$('#answer1').html(),
-				$('#answer2').html(),
-				$('#answer3').html()
-			]
+			options: options
 		};
-
+    	
 		$.post('/levels/add', levelData, function(data){
+			console.log(res);
 		});
 	});
 
@@ -117,28 +106,5 @@ $(function() {
 	   	});
 	});
 });
-<<<<<<< HEAD
-=======
-
-
-var timerInterval = setInterval(myCallback, 100);
-var timer = 60;
-function myCallback() {
-  timer -= 0.1;
-  if(timer == 58) {
-    clearInterval(timerInterval);
-  }
-  $('#timer').text(timer.toFixed(1));
-  $('#fuse').css("width", 100 - timer/0.6 + "%");
-}
-
-// var intervalID = window.setInterval(myCallback, 1000);
-// var fuseTimer = 0;
-// function myCallback() {
-//   fuseTimer += 1;
-
-// }
-
->>>>>>> origin/master
 </script>
 </html>
