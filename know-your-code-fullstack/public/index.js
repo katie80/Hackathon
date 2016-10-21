@@ -1,3 +1,4 @@
+/* jshint esversion:6 */
 $(function() {
   var currentLevel = 0;
 
@@ -32,14 +33,20 @@ $(function() {
   });
 });
 
+var score = 0;
 
-var timerInterval = setInterval(myCallback, 100);
 var timer = 60;
-function myCallback() {
-  timer -= 0.1;
-  if(timer == 58) {
-    clearInterval(timerInterval);
+var timerInterval = setInterval(() => {
+  console.log(timer);
+  if(timer < 0) {
+   clearInterval(timerInterval);
+  } else {
+    minuteTimer();
   }
+}, 100);
+
+function minuteTimer() {
+  timer -= 0.1;
   $('#timer').text(timer.toFixed(1));
   $('#fuse').css("width", 100 - timer/0.6 + "%");
 }
