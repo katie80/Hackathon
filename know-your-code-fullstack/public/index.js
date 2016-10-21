@@ -57,24 +57,26 @@ function randomizeOptions(){
 var score = 0;
 
 function updateScore() {
-    score += (100 - timer.toFixed(1));
+    score += (100 - timer);
+    clearInterval(timerInterval);
+    console.log(score);
+    $('#score').text(score);
     return;
 }
 
 $('#score').text(score);
 
-var timer = 60;
+var timer = 0;
 var timerInterval = setInterval(() => {
-  console.log(timer);
-  if(timer < 0) {
+  if(timer > 99) {
    clearInterval(timerInterval);
   } else {
     minuteTimer();
   }
-}, 100);
+}, 1000);
 
 function minuteTimer() {
-  timer -= 0.1;
-  $('#timer').text(timer.toFixed(1));
+  timer += 1;
+  $('#timer').text(timer);
   $('#fuse').css("width", 100 - timer/0.6 + "%");
 }
