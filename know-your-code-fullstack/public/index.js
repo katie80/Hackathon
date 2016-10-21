@@ -2,6 +2,8 @@
 $(function() {
   var currentLevel = 0;
 
+    randomizeOptions();
+
     $.get('/levels', function(res) {
       $('#level_div').text(res[currentLevel].title);
       $('#question').text(res[currentLevel].question);
@@ -29,6 +31,21 @@ $(function() {
         });
     });
 });
+
+function randomizeOptions(){
+  var randPermutation = [];
+
+  while(randPermutation.length < 3){
+
+    var randIndex = Math.floor(Math.random() * 3);
+  
+    if(!randPermutation.includes(randIndex)){
+      randPermutation.push(randIndex);
+    }
+  }
+
+  console.log(randPermutation);
+}
 
 var score = 0;
 
