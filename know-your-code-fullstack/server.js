@@ -49,19 +49,7 @@ app.get("/levels", (req, res) => {
 	});
 });
 
-app.post("/levels/add", (req, res) => {
-	// Initialize instance of newLevel scheme with data supplied by request
-	var newLevel = new Level({
-		title: req.body.title,
-	    question: req.body.question,
-	    options: req.body["options[]"]
-	});
-
-	newLevel.save((err) => {
-		if(err){return};
-		
-	});
-
+app.get("/levels/save", (req, res) => {
 	Level.find({}, (err, levels) => {
 		// Update Levels array for storage as JSON
 		for(var i in levels){
@@ -91,6 +79,19 @@ app.post("/levels/add", (req, res) => {
 		    console.log("The levels file was saved!");
 		    res.send(Levels);
 		}); 
+	});
+});
+
+app.post("/levels/add", (req, res) => {
+	// Initialize instance of newLevel scheme with data supplied by request
+	var newLevel = new Level({
+		title: req.body.title,
+	    question: req.body.question,
+	    options: req.body["options[]"]
+	});
+
+	newLevel.save((err) => {
+		if(err){return};
 	});
 });
 

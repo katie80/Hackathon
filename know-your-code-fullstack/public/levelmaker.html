@@ -48,9 +48,12 @@
 			</div>
 		</div>
 
-		<button class="btn" id="next_question_btn">Skip to next question</button>
 		<button class="btn" id="add_question_btn">Add Level</button>
 		<button class="btn" id="edit_question_btn">Edit Level</button>
+		<button class="btn" id="save_levels_btn">Save Levels on Database to JSON</button>
+		<button class="btn" id="level_selector_btn">Jump to level: </button>
+
+		<textarea id="level_selector_value" rows="1" cols="2"></textarea>
 
 	</div>
 
@@ -60,15 +63,6 @@
 <script>
 $(function() {
 	var currentLevel = 0;
-	var isRendered = false;
-
-  //   $.get('/levels', function(res) {
-  //   	$('#level_div').text(res[currentLevel].title);
-  //   	$('#question').text(res[currentLevel].question);
-		// $('#answer1').html(res[currentLevel].options[0]);
-  //   	$('#answer2').html(res[currentLevel].options[1]);
-  //   	$('#answer3').html(res[currentLevel].options[2]);
-  //  	});
 
     $('.answers').click(function(){
     	$(this).css("background-color","grey");
@@ -90,6 +84,23 @@ $(function() {
 		$.post('/levels/add', levelData, function(data){
 			console.log(res);
 		});
+	});
+
+	$('#save_levels_btn').click(function(){
+		$.get('/levels/save', function(res){
+			console.log("levels saved")
+		});
+	});
+
+	$('#level_selector_btn').click(function(){
+		currentLevel = $('#level_selector_value').val();
+		$.get('/levels', function(res) {
+	    	$('#level_div').text(res[currentLevel].title);
+	    	$('#question').text(res[currentLevel].question);
+			$('#answer1').html(res[currentLevel].options[0]);
+	    	$('#answer2').html(res[currentLevel].options[1]);
+	    	$('#answer3').html(res[currentLevel].options[2]);
+	   	});
 	});
 
 	$('#next_question_btn').click(function(){
