@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LevelMaker</title>
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+<style>
+	
+textarea {
+	width: 400px;
+	height: 100px;
+}
+
+</style>
+
+<!-- Enter Level name here. Sent as text -->
+<p>Level:<br><input type="text" id="level_div"></p> 
+
+<!-- Enter Question here. Sent as text -->
+<p>Question:<br><textarea type="text" id="question_div"></textarea></p>
+
+<!-- Enter Option 0 here. Sent as html -->
+<p>answer1:<br><textarea type="text" id="answer1" style="border: 3px solid green"></textarea></p>
+
+<!-- Enter Option 1 here. Sent as html -->
+<p>answer2:<br><textarea type="text" id="answer2" style="border: 3px solid red"></textarea></p>
+
+<!-- Enter Option 2 here. Sent as html -->
+<p>answer3:<br><textarea type="text" id="answer3" style="border: 3px solid red"></textarea></p>
+
+<button class="btn" id="add_question_btn">Add Level</button>
+<!-- <button class="btn" id="edit_question_btn">Edit Level</button> --><button class="btn" id="save_levels_btn">Save Levels on Database to JSON</button>
+<button class="btn" id="level_selector_btn">Jump to level: </button>
+
+<input type="number" id="level_selector_value">
+
+</div>
+
+</body>
+ 
+<script>
+$(function() {
+	var currentLevel = 0;
+
+    $('.answers').click(function(){
+    	$(this).css("background-color","grey");
+    });
+
+    $('#add_question_btn').click(function(){
+    	var options = [
+    		$('#answer1').val(),
+			$('#answer2').val(),
+			$('#answer3').val()
+    	];
+
+    	var levelData = {
+			title:$('#level_div').val(),
+			question:$('#question_div').val(),
+			options: options
+		};
+    	
+		$.post('/levels/add', levelData, function(data){
+			// console.log(res);
+		});
+	});
+
+	$('#save_levels_btn').click(function(){
+		$.get('/levels/save', function(res){
+			console.log("levels saved");
+		});
+	});
+
+	$('#level_selector_btn').click(function(){
+		currentLevel = $('#level_selector_value').val();
+		$.get('/levels', function(res) {
+	    	$('#level_div').text(res[currentLevel].title);
+	    	$('#question').text(res[currentLevel].question);
+			$('#answer1').html(res[currentLevel].options[0]);
+	    	$('#answer2').html(res[currentLevel].options[1]);
+	    	$('#answer3').html(res[currentLevel].options[2]);
+	   	});
+	});
+
+	$('#next_question_btn').click(function(){
+		currentLevel++;
+		$.get('/levels', function(res) {
+	    	$('#level_div').text(res[currentLevel].title);
+	    	$('#question').text(res[currentLevel].question);
+	    	$('#answer1').html(res[currentLevel].options[0]);
+	    	$('#answer2').html(res[currentLevel].options[1]);
+	    	$('#answer3').html(res[currentLevel].options[2]);
+	   	});
+	});
+});
+</script>
+</html>
