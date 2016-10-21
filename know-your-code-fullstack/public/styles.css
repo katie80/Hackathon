@@ -119,11 +119,13 @@ burlywood
 .footer .score {
 	font-size: 32px;
 	padding: 16px;
+	font-family: 'Inconsolata', monospace;
 }
 
 .footer .timer {
 	font-size: 32px;
 	padding: 16px;
+	font-family: 'Inconsolata', monospace;
 }
 
 .icon {
