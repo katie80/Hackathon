@@ -2,7 +2,12 @@
 $(function() {
   var currentLevel = 0;
 
-    randomizeOptions();
+    var optionsArragnment = randomizeOptions();
+    var optionIds = ["answer1", "answer2", "answer3"];
+
+    $('#option1').attr("id", optionIds[optionsArragnment[0]]);
+    $('#option2').attr("id", optionIds[optionsArragnment[1]]);
+    $('#option3').attr("id", optionIds[optionsArragnment[2]]);
 
     $.get('/levels', function(res) {
       $('#level_div').text(res[currentLevel].title);
@@ -46,6 +51,7 @@ function randomizeOptions(){
   // Test change
 
   console.log(randPermutation);
+  return randPermutation;
 }
 
 var score = 0;
