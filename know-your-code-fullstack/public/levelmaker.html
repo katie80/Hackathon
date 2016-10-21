@@ -27,14 +27,32 @@
 		<!-- Enter Question here. Sent as text -->
 		<div id="question_div">
 			<p id="question">
-				question string
+				Which function returns the range of the following array?  The range is the difference between the smallest and largest number.
+
+			    findRange([3, 7, 3, 9, 12, 14, 2, 10]); 
+			    The range of this array is 12, (14 - 2).
 			</p>
 		</div>
 
 		<div class="row" id="answers_div">
 			<!-- Enter Option 0 here. Sent as html -->
 			<div class="answers col-md-4" id="answer1">
-				option 1 html
+				<div class="container-fluid">
+				
+<pre style='color:#000000;background:#ffffff;'><span style='color:#800000; font-weight:bold; '>function</span> findRange<span style='color:#808030; '>(</span>arr<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#800000; font-weight:bold; '>var</span> <span style='color:#800000; font-weight:bold; '>min</span> <span style='color:#808030; '>=</span> arr<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+<span style='color:#800000; font-weight:bold; '>var</span> <span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>=</span> arr<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+<span style='color:#800000; font-weight:bold; '>for</span><span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>var</span> a of arr<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>a <span style='color:#808030; '>></span> <span style='color:#800000; font-weight:bold; '>max</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>=</span> a<span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span> <span style='color:#800000; font-weight:bold; '>else</span> <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>a <span style='color:#808030; '>&lt;</span> <span style='color:#800000; font-weight:bold; '>min</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#800000; font-weight:bold; '>min</span> <span style='color:#808030; '>=</span> a<span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+<span style='color:#800080; '>}</span>
+<span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>-</span> <span style='color:#800000; font-weight:bold; '>min</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+</pre>
+				</div>
 			</div>
 
 			<!-- Enter Option 1 here. Sent as html -->
