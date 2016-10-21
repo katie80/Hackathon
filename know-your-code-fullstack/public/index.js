@@ -7,6 +7,7 @@ $(function() {
       $('#question').text(res[currentLevel].question);
 
       if(res[currentLevel].isRendered){
+
         $('#answer1').html(res[currentLevel].options[0]);
         $('#answer2').html(res[currentLevel].options[1]);
         $('#answer3').html(res[currentLevel].options[2]);
@@ -36,11 +37,11 @@ $(function() {
 var score = 0;
 
 function updateScore() {
-  if (correct) {
+  // if (correct) {
     score += (100 - timer.toFixed(1));
-    return score;
-  }
-  return score;
+    return;
+  // }
+  // return;
 }
 $('#score').text(score);
 
