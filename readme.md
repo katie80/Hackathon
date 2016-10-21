@@ -65,3 +65,12 @@ With your mongo data base running in one terminal, open another with command-n, 
 1. Finalize your levels collection using robomongo (delete unwanted levels/duplicates)
 2. Click save levels to json to export your levels into the leves.json file
 
+#### INSTRUCTIONS FOR GIT 
+
+1. Person A makes changes to a file
+2. Person B wishes to edit that file so they
+ ```bash
+  git pull 
+ ``` to download and merge the files stored on the master branch
+3. Person B edits the file
+4. Person B 

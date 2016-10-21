@@ -19,50 +19,31 @@
 
 		<!-- Enter Level name here. Sent as text -->
 		<div id="level_div">
-			level title string 
+			
 		</div>
-
-		<div id="question_number_div">
-		</div>
-		<!-- Enter Question here. Sent as text -->
+		
+		<!-- Enter Question here. Sent as html -->
 		<div id="question_div">
-			<p id="question">
-				Which function returns the range of the following array?  The range is the difference between the smallest and largest number.
+			<!-- Example:
+				<p> What's your favorite color? </p>
+			-->
 
-			    findRange([3, 7, 3, 9, 12, 14, 2, 10]); 
-			    The range of this array is 12, (14 - 2).
-			</p>
 		</div>
 
 		<div class="row" id="answers_div">
 			<!-- Enter Option 0 here. Sent as html -->
 			<div class="answers col-md-4" id="answer1">
-				<div class="container-fluid">
-				
-<pre style='color:#000000;background:#ffffff;'><span style='color:#800000; font-weight:bold; '>function</span> findRange<span style='color:#808030; '>(</span>arr<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-<span style='color:#800000; font-weight:bold; '>var</span> <span style='color:#800000; font-weight:bold; '>min</span> <span style='color:#808030; '>=</span> arr<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
-<span style='color:#800000; font-weight:bold; '>var</span> <span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>=</span> arr<span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
-<span style='color:#800000; font-weight:bold; '>for</span><span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>var</span> a of arr<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>a <span style='color:#808030; '>></span> <span style='color:#800000; font-weight:bold; '>max</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-<span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>=</span> a<span style='color:#800080; '>;</span>
-<span style='color:#800080; '>}</span> <span style='color:#800000; font-weight:bold; '>else</span> <span style='color:#800000; font-weight:bold; '>if</span> <span style='color:#808030; '>(</span>a <span style='color:#808030; '>&lt;</span> <span style='color:#800000; font-weight:bold; '>min</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
-<span style='color:#800000; font-weight:bold; '>min</span> <span style='color:#808030; '>=</span> a<span style='color:#800080; '>;</span>
-<span style='color:#800080; '>}</span>
-<span style='color:#800080; '>}</span>
-<span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#800000; font-weight:bold; '>max</span> <span style='color:#808030; '>-</span> <span style='color:#800000; font-weight:bold; '>min</span><span style='color:#800080; '>;</span>
-<span style='color:#800080; '>}</span>
-</pre>
-				</div>
+
 			</div>
 
 			<!-- Enter Option 1 here. Sent as html -->
 			<div class="answers col-md-4" id="answer2">
-				option 1 html
+
 			</div>
 
 			<!-- Enter Option 2 here. Sent as html -->
 			<div class="answers col-md-4" id="answer3">
-				option 1 html
+
 			</div>
 		</div>
 
@@ -114,7 +95,7 @@ $(function() {
 		currentLevel = $('#level_selector_value').val();
 		$.get('/levels', function(res) {
 	    	$('#level_div').text(res[currentLevel].title);
-	    	$('#question').text(res[currentLevel].question);
+	    	$('#question_div').html(res[currentLevel].question);
 			$('#answer1').html(res[currentLevel].options[0]);
 	    	$('#answer2').html(res[currentLevel].options[1]);
 	    	$('#answer3').html(res[currentLevel].options[2]);
@@ -125,7 +106,7 @@ $(function() {
 		currentLevel++;
 		$.get('/levels', function(res) {
 	    	$('#level_div').text(res[currentLevel].title);
-	    	$('#question').text(res[currentLevel].question);
+	    	$('#question').html(res[currentLevel].question);
 	    	$('#answer1').html(res[currentLevel].options[0]);
 	    	$('#answer2').html(res[currentLevel].options[1]);
 	    	$('#answer3').html(res[currentLevel].options[2]);
