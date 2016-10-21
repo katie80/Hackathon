@@ -43,6 +43,7 @@ function randomizeOptions(){
       randPermutation.push(randIndex);
     }
   }
+  // Test change
 
   console.log(randPermutation);
 }
