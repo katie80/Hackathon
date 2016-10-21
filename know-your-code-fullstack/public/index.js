@@ -15,6 +15,7 @@ $(function() {
     $('.answers').click(function(){
       if($(this).attr('id') === "answer1"){
         $(this).css("background-color","green");
+        updateScore();
       } else {
         $(this).css("background-color","red");
       }
