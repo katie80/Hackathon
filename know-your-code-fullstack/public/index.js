@@ -35,6 +35,15 @@ $(function() {
 
 var score = 0;
 
+function updateScore() {
+  if (correct) {
+    score += (100 - timer.toFixed(1));
+    return score;
+  }
+  return score;
+}
+$('#score').text(score);
+
 var timer = 60;
 var timerInterval = setInterval(() => {
   console.log(timer);
