@@ -51,12 +51,10 @@ function randomizeOptions(){
 var score = 0;
 
 function updateScore() {
-  // if (correct) {
     score += (100 - timer.toFixed(1));
     return;
-  // }
-  // return;
 }
+
 $('#score').text(score);
 
 var timer = 60;
