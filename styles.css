@@ -59,6 +59,7 @@ body {
 	margin-top: 50px;
 }
 
+<<<<<<< HEAD
 #next_question_btn {
 	margin-bottom: 30px;
 }
@@ -91,3 +92,13 @@ burlywood
 #212121	off-black
 */
 
+=======
+.container {
+	background-color: purple;
+	margin: auto;
+	margin-top: 5%;
+	width: 50%;
+	padding: 10px;
+	text-align: center;
+}
+>>>>>>> origin/master

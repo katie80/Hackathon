@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 body {
 	background-color: burlywood;
+=======
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+	background-color: burlywood;
+  margin-bottom: 64px;
+>>>>>>> origin/master
 }
 
 #question_div {
@@ -29,3 +40,59 @@ body {
 	text-align: center;
 }
 
+<<<<<<< HEAD
+=======
+/* Sticky footer styles */
+.footer {
+	text-align: center;
+	font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  background-color: #f5e9db;
+  line-height: 0;
+}
+
+.fuse {
+	background-color: #6F5C43;
+	height: 8px;
+	margin-top: -4px;
+	margin-bottom: 12px;
+}
+
+.footer .score {
+	font-size: 32px;
+	padding: 16px;
+}
+
+.footer .timer {
+	font-size: 32px;
+	padding: 16px;
+}
+
+
+
+.icon {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background-color: burlywood;
+	display: inline-block;
+	height: 32px;
+	margin-bottom: -8px;
+}
+
+.burlywood {
+	background: url("./img/burlywood.svg") top left / cover;
+	width: 130px;
+	height: 32px;
+}
+
+.heart {
+	background: url("./img/heart.svg") top left / cover;
+	width: 32px;
+	height: 32px;
+}
+
+>>>>>>> origin/master
