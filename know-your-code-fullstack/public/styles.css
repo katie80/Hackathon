@@ -11,7 +11,7 @@ body {
 	background-position: center;
 	font-family: 'Poiret One', cursive;
 	font-weight: bold;
-  margin-bottom: 64px;
+	margin-bottom: 64px;
 }
 
 .container {
@@ -24,17 +24,14 @@ body {
 	text-align: center;
 }
 
-#title_div {
-	margin-bottom: 30px;
-}
+/*#title_div {
+	margin-bottom: 10px;
+}*/
 
 #level_div {
 	font-size: 1.7em;
-}
-
-#question_number_div {
-	margin-bottom: 30px;
-	font-size: 1.2em;
+	margin-top: -10px;
+	margin-bottom: 15px;
 }
 
 #question_div {
@@ -65,8 +62,12 @@ body {
 	margin: 0 2%;
 	margin-top: 50px;
 }
+
+pre {
+	text-align: left;
+}
 	
-#next_question_btn {
+#next_question_btn #add_question_btn #edit_question_btn {
 	margin-bottom: 30px;
 }
 
