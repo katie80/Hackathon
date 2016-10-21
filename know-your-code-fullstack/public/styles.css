@@ -54,6 +54,7 @@ body {
 	margin: 10px;
 	margin-bottom: 30px;
 	background-color: #218594;
+	font-family: 'Inconsolata', monospace;
 }
 
 .answers:hover {
