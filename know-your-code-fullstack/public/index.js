@@ -5,32 +5,29 @@ $(function() {
     $.get('/levels', function(res) {
       $('#level_div').text(res[currentLevel].title);
       $('#question').text(res[currentLevel].question);
-
-      if(res[currentLevel].isRendered){
-        $('#answer1').html(res[currentLevel].options[0]);
-        $('#answer2').html(res[currentLevel].options[1]);
-        $('#answer3').html(res[currentLevel].options[2]);
-      } else {
-        $('#answer1').text(res[currentLevel].options[0]);
-        $('#answer2').text(res[currentLevel].options[1]);
-        $('#answer3').text(res[currentLevel].options[2]);
-      }
+      $('#answer1').html(res[currentLevel].options[0]);
+      $('#answer2').html(res[currentLevel].options[1]);
+      $('#answer3').html(res[currentLevel].options[2]);
     });
 
     $('.answers').click(function(){
-      $(this).css("background-color","grey");
+      if($(this).attr('id') === "answer1"){
+        $(this).css("background-color","green");
+      } else {
+        $(this).css("background-color","red");
+      }
     });
 
-  $('#next_question_btn').click(function(){
-    currentLevel++;
-    $.get('/levels', function(res) {
-        $('#level_div').text(res[currentLevel].title);
-        $('#question').text(res[currentLevel].question);
-        $('#answer1').html(res[currentLevel].options[0]);
-        $('#answer2').html(res[currentLevel].options[1]);
-        $('#answer3').html(res[currentLevel].options[2]);
-      });
-  });
+    $('#next_question_btn').click(function(){
+      currentLevel++;
+      $.get('/levels', function(res) {
+          $('#level_div').text(res[currentLevel].title);
+          $('#question').text(res[currentLevel].question);
+          $('#answer1').html(res[currentLevel].options[0]);
+          $('#answer2').html(res[currentLevel].options[1]);
+          $('#answer3').html(res[currentLevel].options[2]);
+        });
+    });
 });
 
 var score = 0;
