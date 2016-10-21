@@ -56,7 +56,9 @@ With your mongo data base running in one terminal, open another with command-n, 
   2. Insert styled html into answer divs 
   3. Add font-size styleing depending on code block size
   4. Manualy add indentation on a line by line basis.
-5. Click add level to save level to database
+5. In your browser, navagate to localhost:8000/levelmaker.html
+6. Visualy inspect render and make additional edits if needed
+7. Once satisfied with level, Click add level to save level to database.
 
 # At the end of a session
 
