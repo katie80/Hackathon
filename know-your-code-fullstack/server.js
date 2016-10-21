@@ -14,29 +14,19 @@ const PORT = process.env.port || 8000;
 // Use mongoose to connect to mogo database
 mongoose.connect("mongodb://localhost");
 
-
+// import level constructor
 var LevelConstructor = require("./level.js");
+// initialize schema 
 var Level = LevelConstructor(mongoose);
 
-var newLevel = new Level({
-	title: "Level 1: HTML",
-    question: "What makes the biggest header?",
-    options:
-	[
-		"<h3> Header </h3>", 
-		"<h2> Header </h2>", 
-		"<h1> Header </h1>"
-	]
-});
-
-newLevel.save((err) => {
-	if(err){return};
-});
+var Levels = {};
 
 // Initialize bodyparser
 var bodyParser = require("body-parser");
+
 // Set body parser urlencoding 
 app.use(bodyParser.urlencoded({extended: false}));
+
 // Set first layer of express stack as bodyParser
 app.use(bodyParser.json());
 
@@ -51,8 +41,42 @@ app.get("/", (req, res) => {
 
 app.get("/levels", (req, res) => {
 	Level.find({}, (err, levels) => {
-		res.send(levels[0]);
+		// Update Levels array for storage as JSON
+		for(var i in levels){
+			var levelJSON = {
+				_id: levels[i]._id,
+				content: {
+					title: levels[i].title,
+					question: levels[i].question,
+					isRendered: levels[i].isRendered,
+					options: levels[i].options
+				}
+			}
+			// If the Level dosnt exist, add it to the Levels object
+			if(!Levels[levelJSON._id]){
+				Levels[levelJSON._id] = levelJSON.content;
+			}
+		}
+		console.log(JSON.stringify(Levels));
+		res.send(levels);
 	});
+});
+
+app.post("/levels/add", (req, res) => {
+	// Initialize instance of newLevel scheme with data supplied by request
+	var newLevel = new Level({
+		title: req.body.title,
+	    question: req.body.question,
+	    isRendered: req.body.isRendered,
+	    options: req.body.options
+	});
+
+	newLevel.save((err) => {
+		if(err){return};
+	});
+
+	console.log(newLevel.isRendered);
+	res.send();
 });
 
 // Express Stack: Error Handling 

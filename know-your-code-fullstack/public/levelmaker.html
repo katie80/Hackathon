@@ -65,6 +65,7 @@
 <script>
 $(function() {
 	var currentLevel = 0;
+	var isRendered = false;
 
     $.get('/levels', function(res) {
     	$('#level_div').text(res[currentLevel].title);
@@ -84,6 +85,26 @@ $(function() {
     $('.answers').click(function(){
     	$(this).css("background-color","grey");
     });
+
+    $('#render-checkbox').click(function(){
+    	isRendered = !isRendered;
+    });
+
+    $('#add_question_btn').click(function(){
+		var levelData = {
+			title:$('#level_div').text(),
+			question:$('#question').text(),
+			isRendered: isRendered,
+			options:[
+				$('#answer1').html(),
+				$('#answer2').html(),
+				$('#answer3').html()
+			]
+		};
+
+		$.post('/levels/add', levelData, function(data){
+		});
+	});
 
 	$('#next_question_btn').click(function(){
 		currentLevel++;
