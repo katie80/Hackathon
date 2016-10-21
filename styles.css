@@ -1,3 +1,8 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
 	background-image: url('https://s-media-cache-ak0.pinimg.com/originals/d6/6f/8b/d66f8bdfd0a785285398c233dcb97c13.jpg');
 	color: #212121;
@@ -6,6 +11,7 @@ body {
 	background-position: center;
 	font-family: 'Poiret One', cursive;
 	font-weight: bold;
+  margin-bottom: 64px;
 }
 
 .container {
@@ -59,7 +65,6 @@ body {
 	margin-top: 50px;
 }
 
-<<<<<<< HEAD
 #next_question_btn {
 	margin-bottom: 30px;
 }
@@ -101,4 +106,53 @@ burlywood
 	padding: 10px;
 	text-align: center;
 }
->>>>>>> origin/master
+
+.footer {
+	text-align: center;
+	font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  background-color: #f5e9db;
+  line-height: 0;
+}
+
+.fuse {
+	background-color: #6F5C43;
+	height: 8px;
+	margin-top: -4px;
+	margin-bottom: 12px;
+}
+
+.footer .score {
+	font-size: 32px;
+	padding: 16px;
+}
+
+.footer .timer {
+	font-size: 32px;
+	padding: 16px;
+}
+
+.icon {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background-color: burlywood;
+	display: inline-block;
+	height: 32px;
+	margin-bottom: -8px;
+}
+
+.burlywood {
+	background: url("./img/burlywood.svg") top left / cover;
+	width: 130px;
+	height: 32px;
+}
+
+.heart {
+	background: url("./img/heart.svg") top left / cover;
+	width: 32px;
+	height: 32px;
+}
