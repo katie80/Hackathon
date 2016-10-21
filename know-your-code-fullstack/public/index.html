@@ -50,74 +50,14 @@
 		<button class="btn" id="edit_question_btn">Edit Level</button>
 
 	</div>
-<<<<<<< HEAD
-=======
 
   <footer class="footer"><div id="fuse" class="fuse"> </div><div class="score pull-left">1000</div>Coded with <span class="icon heart">love</span> by <span class="icon burlywood">Burlywood</span><div id="timer" class="timer pull-right"></div></footer>
->>>>>>> origin/master
-	
+
 </body>
+
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
  
-<script>
-$(function() {
-	var currentLevel = 0;
-
-    $.get('/levels', function(res) {
-    	$('#level_div').text(res[currentLevel].title);
-    	$('#question').text(res[currentLevel].question);
-
-    	if(res[currentLevel].isRendered){
-    		$('#answer1').html(res[currentLevel].options[0]);
-	    	$('#answer2').html(res[currentLevel].options[1]);
-	    	$('#answer3').html(res[currentLevel].options[2]);
-    	} else {
-    		$('#answer1').text(res[currentLevel].options[0]);
-	    	$('#answer2').text(res[currentLevel].options[1]);
-	    	$('#answer3').text(res[currentLevel].options[2]);
-    	}
-   	});
-
-    $('.answers').click(function(){
-    	$(this).css("background-color","grey");
-    });
-
-	$('#next_question_btn').click(function(){
-		currentLevel++;
-		$.get('/levels', function(res) {
-	    	$('#level_div').text(res[currentLevel].title);
-	    	$('#question').text(res[currentLevel].question);
-	    	$('#answer1').html(res[currentLevel].options[0]);
-	    	$('#answer2').html(res[currentLevel].options[1]);
-	    	$('#answer3').html(res[currentLevel].options[2]);
-	   	});
-	});
-});
-<<<<<<< HEAD
-=======
-
-
-var timerInterval = setInterval(myCallback, 100);
-var timer = 60;
-function myCallback() {
-  timer -= 0.1;
-  if(timer == 58) {
-    clearInterval(timerInterval);
-  }
-  $('#timer').text(timer.toFixed(1));
-  $('#fuse').css("width", 100 - timer/0.6 + "%");
-}
-
-// var intervalID = window.setInterval(myCallback, 1000);
-// var fuseTimer = 0;
-// function myCallback() {
-//   fuseTimer += 1;
-
-// }
-
->>>>>>> origin/master
-</script>
 </html>
