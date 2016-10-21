@@ -77,7 +77,7 @@ body {
 }
 
 .burlywood {
-	background: url("./img/burlywood.png") top left / cover;
+	background: url("./img/burlywood.svg") top left / cover;
 	width: 130px;
 	height: 32px;
 }
