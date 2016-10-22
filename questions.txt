@@ -1,0 +1,306 @@
+HTML
+
+1. Choose the correct HTML element for the largest heading:
+
+ <h1>
+ <h6>
+ <head>
+
+2. Choose the correct HTML element to define emphasized text
+
+ <em>
+ <italic>
+ <i>
+
+3. What is the correct HTML for creating a hyperlink?
+
+ <a href="http://www.w3schools.com">W3Schools</a>
+ <a url="http://www.w3schools.com">W3Schools.com</a>
+ <a name="http://www.w3schools.com">W3Schools.com</a>
+
+
+4. How can you open a link in a new tab/browser window?
+
+ <a href="url" target="_blank">
+ <a href="url" target="new">
+ <a href="url" new>
+ 
+
+5. How can you make a numbered list?
+
+ <ol>
+ <list>
+ <ul>
+ 
+
+6. What is the correct HTML for making a checkbox?
+
+ <input type=“checkbox">
+ <input type="check">
+ <checkbox>
+ 
+
+7. What is the correct HTML for making a text area?
+
+ <input type="textbox">
+ <textarea>
+ <input type="textarea">
+
+8. GET A NEW QUESTION!
+
+
+9. Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?
+
+ alt
+ src
+ title
+
+
+10. Which doctype is correct for HTML5?
+
+ <!DOCTYPE html>
+ <!DOCTYPE HTML5>
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 5.0//EN" “http://www.w3.org/TR/html5/strict.dtd">
+
+CSS: 
+
+1. What is the correct HTML for referring to an external style sheet?
+
+ <link rel="stylesheet" type="text/css" href=“mystyle.css">
+ <stylesheet>mystyle.css</stylesheet>
+ <style src="mystyle.css">
+ 
+
+2. Which HTML attribute is used to define inline styles?
+
+ style
+ class
+ font
+
+
+3. Which is the correct CSS syntax? (Which code is being rendered?)
+
+ body {color: black;}
+ body:color=black;
+ {body:color=black;}
+
+4.  How do you add a background color for all <h1> elements?
+
+ h1 {background-color:#FFFFFF;}
+ all.h1 {background-color:#FFFFFF;}
+ h1.all {background-color:#FFFFFF;}
+
+5. What is the correct CSS syntax for making all the <p> elements bold?
+
+ p {font-weight:bold;}
+ <p style="font-size:bold;">
+ p {text-size:bold;}
+
+6. How do you display hyperlinks without an underline?
+
+ a {text-decoration:none;}
+ a {underline:none;}
+ a {text-decoration:no-underline;}
+
+7. How do you make the text 18pt?
+
+ font-size:18pt;
+ style:font-18pt;
+ font:18pt;
+ 
+
+8. How do you display a border like this:
+The top border = 10 pixels
+The bottom border = 5 pixels
+The left border = 20 pixels
+The right border = 1pixel?
+
+border-width:10px 1px 5px 20px;
+border-width:5px 20px 10px 1px;
+border-width:10px 20px 5px 1px;
+
+
+9. Which property is used to change the left margin of an element?
+
+ margin-left
+ indent
+ padding-left
+ 
+
+10. How do you select an element with id "demo"?
+
+ #demo
+ demo
+ .demo
+
+Node:
+
+1. - How are Node based web servers different from traditional web servers?
+
+A Node based server uses a single threaded model and can service a much larger number of requests than a traditional server like an Apache HTTP Server.
+
+A Node based server processes requests much faster than a traditional server.
+
+There is not much difference between the two.
+
+
+2.  Which method of the fs module is used to open a file?
+
+fs.open(path, flags[, mode], callback)
+
+fs.openFile(path, flags[, mode], callback)
+
+fs.openPath(path, flags[, mode], callback)
+
+
+3. Which of the following is true about global objects in Node applications?
+
+Both are true
+
+Global objects are global in nature and they are available in all modules.
+
+Global objects are not required to be included in the application, rather they can be used directly.
+
+
+4. Which of the following statements is valid to use an http Node module in a Node based application?
+
+var http = require("http");
+
+var http = import("http");
+
+package http;
+
+
+5. What is a callback?
+
+Both are true
+
+A callback is an asynchronous equivalent for a function.
+
+A callback is a technique in which a method calls back the caller method.
+
+
+6. In what order will “Harry” and “Hargrid” be logged to console in the following code:
+	var fs = require (‘fs’);
+	fs.writeFile(“../intro.txt”, “Yer’ a wizard”, function(err) {
+		if(err) {
+			console.log(err);
+			return;
+		}
+
+		console.log(“Harry”);
+	});
+	
+	console.log(“Hagrid”);
+
+
+“Hagrid” “Harry”
+“Hagrid”
+“Harry” “Hagrid”
+
+
+7. Assuming that “magical_creatures.json” exists, is readable, and contains valid JSON data, how can we fix the code so that it will no longer console.log “undefined?
+
+	var fs = require(“fs”);
+	var creatures;
+
+	fs.readFile(“magical_creatures.json”, function(err, data) {
+
+		if (err) {
+			console.log(“No creatures found”);
+			creatures = {};
+			return;
+		}
+
+		creatures = JSON.parse(data);
+	});
+
+	console.log(creatures);
+
+
+	var fs = require(“fs”);
+	var creatures;
+
+	fs.readFile(“magical_creatures.json”, function(err, data) {
+
+		if (err) {
+			console.log(“No creatures found”);
+			creatures = {};
+			return;
+		}
+
+		creatures = JSON.parse(data);
+		console.log(creatures);
+
+	});
+
+	var fs = require(“fs”);
+	var creatures;
+
+	fs.readFile(“magical_creatures.json”, function(err, data) {
+
+		if (err) {
+			console.log(“No creatures found”);
+			creatures = {};
+		}
+
+		return creatures = JSON.parse(data);
+	});
+	console.log(creatures);
+
+
+ 	var fs = require(“fs”);
+	
+	fs.readFile(“magical_creatures.json”, function(err, data) {
+		var creatures;
+
+		if (err) {
+			console.log(“No creatures found”);
+			creatures = {};
+			return;
+		}
+
+		creatures = JSON.parse(data);
+	});
+
+	console.log(creatures);
+
+
+8.  What will the following log to console?
+
+	function doWork (workToDo, callback) {
+		console.log(workToDo);
+		if (callback) { callback(); }
+	}
+
+	doWork(“Programming”, function() {
+		doWork(“Coding”, function() {
+			doWork(“Sleeping”);
+		});
+	});
+
+	A: Programming, Coding, Sleeping
+	B: Sleeping
+	C: Sleeping, Coding, Programming
+
+9. What does npm stands for?
+
+Node Package Manager
+
+Node Project Manager
+
+New Project Manager
+
+10. What are the major differences between node.js and browser (frontend) JavaScript?
+
+	Node: No DOM, runs in server, file system
+	JavaScript: DOM, runs in browser, no file system
+
+	JavaScript: No DOM, runs in server, file system
+	Node: DOM, runs in browser, no file system
+
+	There is no difference.
+
+
+
+	
