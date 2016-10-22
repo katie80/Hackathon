@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Know Your Code</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Poiret+One" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div id="title_div">
+			<h1 id="title">Know Your Code</h1>
+		</div>
+
+		<!-- Enter Level name here. Sent as text -->
+		<div id="level_div">
+			
+		</div>
+		
+		<!-- Enter Question here. Sent as html -->
+		<div id="question_div">
+			<!-- Example:
+				<p> What's your favorite color? </p>
+			-->
+
+		</div>
+
+		<div class="row" id="answers_div">
+			<!-- Enter Option 0 here. Sent as html -->
+			<div class="answers col-md-4" id="answer1">
+
+			</div>
+
+			<!-- Enter Option 1 here. Sent as html -->
+			<div class="answers col-md-4" id="answer2">
+
+			</div>
+
+			<!-- Enter Option 2 here. Sent as html -->
+			<div class="answers col-md-4" id="answer3">
+
+			</div>
+		</div>
+
+		<button class="btn" id="add_question_btn">Add Level</button>
+		<button class="btn" id="edit_question_btn">Edit Level</button>
+		<button class="btn" id="save_levels_btn">Save Levels on Database to JSON</button>
+		<button class="btn" id="level_selector_btn">Jump to level: </button>
+
+		<textarea id="level_selector_value" rows="1" cols="2"></textarea>
+
+	</div>
+
+  <footer class="footer"><div id="fuse" class="fuse"> </div><div class="score pull-left">1000</div>Coded with <span class="icon heart">love</span> by <span class="icon burlywood">Burlywood</span><div id="timer" class="timer pull-right"></div></footer>
+</body>
+ 
+<script>
+$(function() {
+	var currentLevel = 0;
+
+    $('.answers').click(function(){
+    	$(this).css("background-color","grey");
+    });
+
+    $('#add_question_btn').click(function(){
+    	var options = [
+    		$('#answer1').html(),
+			$('#answer2').html(),
+			$('#answer3').html()
+    	];
+
+    	var levelData = {
+			title:$('#level_div').text(),
+			question:$('#question').text(),
+			options: options
+		};
+    	
+		$.post('/levels/add', levelData, function(data){
+			console.log(res);
+		});
+	});
+
+	$('#save_levels_btn').click(function(){
+		$.get('/levels/save', function(res){
+			console.log("levels saved")
+		});
+	});
+
+	$('#level_selector_btn').click(function(){
+		currentLevel = $('#level_selector_value').val();
+		$.get('/levels', function(res) {
+	    	$('#level_div').text(res[currentLevel].title);
+	    	$('#question_div').html(res[currentLevel].question);
+			$('#answer1').html(res[currentLevel].options[0]);
+	    	$('#answer2').html(res[currentLevel].options[1]);
+	    	$('#answer3').html(res[currentLevel].options[2]);
+	   	});
+	});
+
+	$('#next_question_btn').click(function(){
+		currentLevel++;
+		$.get('/levels', function(res) {
+	    	$('#level_div').text(res[currentLevel].title);
+	    	$('#question').html(res[currentLevel].question);
+	    	$('#answer1').html(res[currentLevel].options[0]);
+	    	$('#answer2').html(res[currentLevel].options[1]);
+	    	$('#answer3').html(res[currentLevel].options[2]);
+	   	});
+	});
+});
+</script>
+</html>
