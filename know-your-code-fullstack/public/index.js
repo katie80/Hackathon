@@ -29,8 +29,8 @@ $(function() {
 		currentLevel++;
 		clicked = false;
 		timer = 0;
-		randomizeOptions();
 		$("#answer1").removeClass("correct");
+		randomizeOptions();
 		$.get('/levels', function(res) {
 			$('#level_div').html(res[currentLevel].title);
 			$('#question').html(res[currentLevel].question);
