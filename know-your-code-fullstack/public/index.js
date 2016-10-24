@@ -20,7 +20,7 @@ $(function() {
 		});
 
 
-		$('.answers').click(function(){
+		$('.innerAns').click(function(){
 			timerInterval = null;
 			$("#answer1").addClass("correct");
 			if($(this).attr('id') === "answer1" && clicked === false){
