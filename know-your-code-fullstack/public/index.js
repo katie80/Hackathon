@@ -66,8 +66,10 @@ var score = 0;
 
 function updateScore() {
 	score += (100 - timer);
-	$('#score').text(score);
-	$("#score").trigger("hover");
+
+	$('score').clone(score);
+	$("#score").addClass("poof");
+
 	return;
 }
 

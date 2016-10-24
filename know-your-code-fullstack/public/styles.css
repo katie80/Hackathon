@@ -146,11 +146,11 @@ burlywood
 	padding: 16px;
 }
 
-.score:hover {
+.poof {
 	font-size: 64px;
 	margin-top: -50px;
 	color: rgba(0,0,0,0);
-	transition: .2s ease;
+	transition: .5s ease;
 }
 
 .timer {
