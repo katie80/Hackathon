@@ -50,7 +50,7 @@ body {
 }
 
 .answers {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	border-radius: 10px;
 	height: 200px;
 	background-color: #218594;
@@ -75,13 +75,14 @@ pre {
 	margin-bottom: 30px;
 }
 
-#btn {
-	background-color: #218594;
-	color: #218594;
+.btn {
+	background-color: #9BAAAB;
+/*	border: 1px solid #212121;*/
+	margin-bottom: 10px;
 }
 
-#btn:hover {
-	opacity: 0.7;
+.btn:hover {
+	background-color: #9BAAAB;
 }
 
 .correct {
