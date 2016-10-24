@@ -1,6 +1,6 @@
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
@@ -19,14 +19,10 @@ body {
 	border-radius: 5px;
 	margin: auto;
 	margin-top: 3%;
-	width: 50%;
+	margin-bottom: 3%;
 	padding: 10px;
 	text-align: center;
 }
-
-/*#title_div {
-	margin-bottom: 10px;
-}*/
 
 #level_div {
 	font-size: 1.7em;
@@ -43,13 +39,20 @@ body {
 	margin: auto;
 }
 
+@media (max-width: 767px) {
+	.container {
+		background-color: transparent;;
+	}
+	#question_div {
+		width: 80%;
+	}
+}
+
 .answers {
 	border: 1px solid black;
 	border-radius: 10px;
 	height: 200px;
-	width: 200px;
-	margin: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	background-color: #218594;
 	font-family: 'Inconsolata', monospace;
 }
@@ -102,12 +105,12 @@ burlywood
 .footer {
 	text-align: center;
 	font-size: 18px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 64px;
-  background-color: #f5e9db;
-  line-height: 0;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 64px;
+	background-color: #f5e9db;
+	line-height: 0;
 }
 
 .fuse {
