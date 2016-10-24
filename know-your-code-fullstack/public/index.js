@@ -70,7 +70,7 @@ function updateScore() {
 }
 
 $('#score').text(score);
-
+//
 
 
 	var timer = 0;
