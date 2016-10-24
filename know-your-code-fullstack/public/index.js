@@ -81,5 +81,5 @@ function secondCounter() {
 	if (timer < 99) {
 	timer += 1;
 	}
-	$('#timer').text(timer);
+	// $('#timer').text(timer);
 }
