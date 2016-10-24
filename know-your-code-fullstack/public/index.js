@@ -29,6 +29,7 @@ $(function() {
 		currentLevel++;
 		clicked = false;
 		timer = 0;
+		randomizeOptions();
 		$("#answer1").removeClass("correct");
 		$.get('/levels', function(res) {
 			$('#level_div').html(res[currentLevel].title);
@@ -37,7 +38,6 @@ $(function() {
 			$('#answer2').html(res[currentLevel].options[1]);
 			$('#answer3').html(res[currentLevel].options[2]);
 		});
-		randomizeOptions();
 	});
 });
 	
