@@ -141,12 +141,19 @@ burlywood
 	margin-bottom: 12px;
 }
 
-.footer .score {
+.score {
 	font-size: 32px;
 	padding: 16px;
 }
 
-.footer .timer {
+.score:hover {
+	font-size: 64px;
+	margin-top: -50px;
+	color: rgba(0,0,0,0);
+	transition: .2s ease;
+}
+
+.timer {
 	font-size: 32px;
 	padding: 16px;
 }
