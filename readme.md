@@ -41,7 +41,7 @@ option = {content: "string",
 4. Start mongodb poitnted to data directory
 ```bash
 npm init
-npm install --save express body-parser mongoose
+npm install --save express body-parser mongoose prismjs
 mkdir data
 mongod --dbpath ./data
 ```
