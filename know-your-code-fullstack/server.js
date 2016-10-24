@@ -1,5 +1,9 @@
 // Requires fs, express, mongoose, body-parser
 
+
+// Initialize Prism
+var Prism = require("prismjs");
+
 // Initialize file system
 var fs = require("fs");
 
@@ -80,6 +84,10 @@ app.get("/levels/save", (req, res) => {
 		    res.send(Levels);
 		}); 
 	});
+});
+
+app.post("/highlight", (req, res) => {
+
 });
 
 app.post("/levels/add", (req, res) => {
