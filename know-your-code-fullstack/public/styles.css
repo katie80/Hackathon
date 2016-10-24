@@ -34,7 +34,7 @@ body {
 }
 
 #question_div {
-	background-color: #917959;
+	background-color: #002240;
 	margin-top: 50px;
 	font-family: 'Inconsolata', monospace;
 	width: 50%;
@@ -55,7 +55,7 @@ body {
 	border: 1px solid black;
 	border-radius: 10px;
 	height: 200px;
-	background-color: rgba(238,238,238,0.92);
+	background-color: #002240;
 	font-family: 'Inconsolata', monospace;
 	margin: 5px;
 }
@@ -80,6 +80,7 @@ pre {
 	font-size: 0.7em;
 	border-radius: 10px;
 	border: 0;
+	white-space: pre-wrap;
 }
 	
 #next_question_btn #add_question_btn #edit_question_btn {
