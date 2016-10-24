@@ -1,6 +1,7 @@
 /* jshint esversion:6 */
 $(function() {
 	var currentLevel = 0;
+	var clickCount = 0;
 
 		var optionsArragnment = randomizeOptions();
 		var optionIds = ["answer1", "answer2", "answer3"];
@@ -17,9 +18,11 @@ $(function() {
 			$('#answer3').html(res[currentLevel].options[2]);
 		});
 
+
 		$('.answers').click(function(){
+			clickCount++;
 			$("#answer1").css("box-shadow","0 0 5px 5px #379B4A");
-			if($(this).attr('id') === "answer1"){
+			if($(this).attr('id') === "answer1" && clickCount === 1){
 				updateScore();
 			}
 			// Code to move on to next level goes here
