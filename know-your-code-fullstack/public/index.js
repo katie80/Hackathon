@@ -20,16 +20,6 @@ $(function() {
 	});
 
 
-<<<<<<< Updated upstream
-		$('.innerAns').click(function(){
-			timerInterval = null;
-			$("#answer1").addClass("correct");
-			if($(this).attr('id') === "answer1" && clicked === false){
-				updateScore();
-			}
-			clicked = true;
-		});
-=======
 	$('.innerAns').click(function(){
 		timerInterval = null;
 		$("#answer1").addClass("correct");
@@ -38,7 +28,7 @@ $(function() {
 		}
 		clicked = true;
 	});
->>>>>>> Stashed changes
+
 
 	$('#next_question_btn').click(function(){
 		currentLevel++;
@@ -46,12 +36,12 @@ $(function() {
 		timer = 0;
 		$("#answer1").removeClass("correct");
 		$.get('/levels', function(res) {
-				$('#level_div').text(res[currentLevel].title);
-				$('#question').text(res[currentLevel].question);
-				$('#answer1').html(res[currentLevel].options[0]);
-				$('#answer2').html(res[currentLevel].options[1]);
-				$('#answer3').html(res[currentLevel].options[2]);
-			});
+			$('#level_div').text(res[currentLevel].title);
+			$('#question').text(res[currentLevel].question);
+			$('#answer1').html(res[currentLevel].options[0]);
+			$('#answer2').html(res[currentLevel].options[1]);
+			$('#answer3').html(res[currentLevel].options[2]);
+		});
 	});
 });
 	
