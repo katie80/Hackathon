@@ -46,11 +46,8 @@ $(function() {
 	
 function randomizeOptions(){
 	var randPermutation = [];
-
 	while(randPermutation.length < 3){
-
 		var randIndex = Math.floor(Math.random() * 3);
-	
 		if(!randPermutation.includes(randIndex)){
 			randPermutation.push(randIndex);
 		}
@@ -73,11 +70,11 @@ $('#score').text(score);
 var timer = 0;
 setInterval(() => {
 	secondCounter();
-}, 1000);
+}, 100);
 
 function secondCounter() {
-	if (timer < 100) {
+	if (timer < 99) {
 	timer += 1;
 	}
-	// $('#timer').text(timer);
+	$('#timer').text(timer);
 }
