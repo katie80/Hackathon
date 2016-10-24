@@ -49,21 +49,18 @@ body {
 	}
 }
 
-.answers {
-	/*border: 1px solid black;*/
+.innerAns {
+	border: 1px solid black;
 	border-radius: 10px;
 	height: 200px;
 	background-color: #218594;
 	font-family: 'Inconsolata', monospace;
 	margin-bottom: 30px;
-}
-
-.answers:hover {
-	opacity: 0.7;
-}
-
-.innerAns {
 	margin: 5px;
+}
+
+.innerAns:hover {
+	opacity: 0.7;
 }
 
 #answers_div {
