@@ -23,6 +23,8 @@ body {
 	margin-bottom: 3%;
 	padding: 10px;
 	text-align: center;
+/*	width: 74%;
+	margin-left: 13%;*/
 }
 
 #level_div {
@@ -74,6 +76,9 @@ body {
 
 pre {
 	text-align: left;
+	margin-top: 5px;
+	font-size: 0.8em;
+	border-radius: 10px;
 }
 	
 #next_question_btn #add_question_btn #edit_question_btn {
