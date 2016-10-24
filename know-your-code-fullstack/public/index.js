@@ -36,8 +36,8 @@ $(function() {
 		timer = 0;
 		$("#answer1").removeClass("correct");
 		$.get('/levels', function(res) {
-			$('#level_div').text(res[currentLevel].title);
-			$('#question').text(res[currentLevel].question);
+			$('#level_div').html(res[currentLevel].title);
+			$('#question').html(res[currentLevel].question);
 			$('#answer1').html(res[currentLevel].options[0]);
 			$('#answer2').html(res[currentLevel].options[1]);
 			$('#answer3').html(res[currentLevel].options[2]);
