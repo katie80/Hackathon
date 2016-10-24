@@ -18,9 +18,8 @@ $(function() {
 		});
 
 		$('.answers').click(function(){
+			$("#answer1").css("box-shadow","0 0 5px 5px #379B4A");
 			if($(this).attr('id') === "answer1"){
-				$(this).css("box-shadow","0 0 5px 5px #379B4A" 
-					);
 				updateScore();
 			}
 			// Code to move on to next level goes here
