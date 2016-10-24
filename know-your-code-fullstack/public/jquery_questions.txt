@@ -1,0 +1,112 @@
+What is the correct jQuery code to set the background color of all p elements to burlywood?
+
+$("p").css("background-color","burlywood");
+$("p").layout("background-color","burlywood");
+$("p").style("background-color","burlywood");
+
+With jQuery, look at the following selector: $("div.intro"). What does it select?
+
+All div elements with class="intro"
+All div elements with id="intro"
+The first div element with class="intro"
+
+Which jQuery method is used to hide selected elements?
+
+hide()
+display(none)
+hidden()
+
+Which jQuery method is used to set one or more style properties for selected elements?
+
+css()
+style()
+html()
+
+Which jQuery method is used to perform an asynchronous HTTP request?
+
+jQuery.ajax()
+jQuery.ajaxSetup()
+jQuery.ajaxAsync()
+
+What is the correct jQuery code for making all div elements 100 pixels high?
+
+$("div").height(100)
+$("div").height="100"
+$("div").yPos(100)
+
+Which statement is true?
+
+To use jQuery, you can refer to a hosted jQuery library at Google
+To use jQuery, you must buy the jQuery library at www.jquery.com
+To use jQuery, you do not have to do anything. Most browsers (Internet Explorer, Chrome, Firefox and Opera) have the jQuery library built in the browser
+
+Which jQuery function is used to prevent code from running, before the document is finished loading?
+
+$(document).ready()
+$(body).onload()
+$(document).load()
+
+Which jQuery method should be used to deal with name conflicts?
+
+noConflict()
+nameConflict()
+noNameConflict()
+
+Which jQuery method is used to switch between adding/removing one or more classes (for CSS) from selected elements?
+
+toggleClass()
+switchClass()
+altClass()
+
+Look at the following selector: $("div p"). What does it select?
+
+All p elements inside a div element
+All div elements with a p element
+The first p element inside a div element
+
+Which jQuery method is used to remove selected elements?
+
+Both methods can be used
+detach()
+remove()
+
+Look at the following selector: $(":disabled"). What does it select?
+
+All disabled input elements
+All elements that does not contain the text "disabled"
+All elements containing the text "disabled"
+
+Which jQuery method returns the direct parent element of the selected element?
+
+parent()
+parents()
+ancestor()
+
+The jQuery animate() method can be used to animate ANY CSS property?
+
+Only properties containing numeric values
+Yes
+All properties except the shorthand properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
