@@ -80,6 +80,9 @@ pre {
 	font-size: 0.7em;
 	border-radius: 10px;
 	border: 0;
+}
+
+#question_div pre {
 	white-space: pre-wrap;
 }
 	
