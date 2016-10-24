@@ -1,0 +1,445 @@
+Which code will return the number of elements in an array?
+
+console.log(array.length);
+console.log(length.array);
+console.log(elements.length.array);
+
+
+Inside which HTML element do we put the JavaScript?
+
+<script>
+<js>
+<javascript>
+
+How does a WHILE loop start?
+
+while (i <= 10)
+while(i <= 10, i++)
+while(i = 0, i <= 10, i++)
+
+
+How does a FOR loop start?
+
+for (i = 0; i <= 5; i++)	
+for(i <= 5)
+for(i++, i = 0; i <= 5)
+
+What does this section of code do?
+
+	app.use(bodyParser.json());
+
+Sets up middleware to handle JSON POST request data and put the result in req.body.
+Converts string to JSON.
+A function to retrieve objects in bodyParser file.
+	
+
+What will the following code log to console?
+
+	function createSayFunction(greeting) {
+		return function(name) {
+			console.log(greeting + “ ” + name);
+			}
+		}
+	var say = createSayFunction(“Hello”);
+	say(“User”);
+
+“Hello, user”
+“Name, greeting”
+“Say, hello”
+
+
+Which function returns the range of the following array?  The range is the difference between the smallest and largest number.  
+
+	findRange([3, 7, 3, 9, 12, 14, 2, 10]); 
+	The range of this array is 12, (14 - 2).
+
+function findRange(arr) {
+	var min = arr[0];
+	var max = arr[0];
+		for(var a of arr) {
+			if(a > max) {
+				max = a;
+			} else if (a < min) {
+				min = a;
+			}
+		}
+return max - min;
+}
+
+function findRange(
+    (max(arr[i]) - min(arr[i])
+);
+
+function findRange(arr) {
+  for(var i = 0, i < length, i++);
+return max(arr[i]) - min(arr[i]);
+}
+
+Which part of this code accesses a variable from a “higher” or “outer” scope?
+	
+	var outer = function (a) {
+	    var result; 
+	    var inner = function (b) {
+	        return b * a;
+		}
+		result = inner(a);
+	return result;
+	}
+	var answer = outer(5) + outer(4);
+
+
+	a
+	outer(5) + outer(4);
+	inner
+
+
+
+What will the following code log to console?
+	
+	function square(i) {
+	    return i * i; }
+	function cube(i) { 
+	    return i * i * i; }
+
+	var funcs = [square, cube, square, cube];
+	var nums = [3, 2, 2, 3];
+
+		for (var i = 0; i < funcs.length; i++) {
+			console.log(funcs[i](nums[i]));
+		}  
+
+9, 8, 4, 27
+6, 4, 4, 9
+3, 2, 2, 3
+
+
+
+MONGO
+
+What does the acronym CRUD stand for?
+
+Create, Read, Update, Delete
+Create, Return, Update, Dump
+Code, Reflect, Upload, Decrement
+
+What is a record in MongoDB, which is a data structure composed of field and value pairs?
+
+Document
+Database key
+Schema
+
+What does the following code do?
+
+	db.users.find( { status: "A", age: { $lt: 30 } } )
+
+Retrieves all documents in the users collection where the status equals "A" and age is less than 30.
+Replaces all A ages with 30 in the users array collection.
+Finds all users with the age 30.  
+
+
+What is the following code used for?
+
+	db.collection.insert()
+
+A method used to insert documents into a collection.
+Creates a new collection in the database.
+Finds data in a database collection.
+
+What does the following MongoDB query do?
+
+	{a: {$gt: 10}}
+
+Docs where a is greater than 10.
+Adds the value 10 to the a variable.
+Docs where a is an array that contains 10.
+
+What in MongoDB is a group of mongod processes that maintain the same data set and provide redundancy and high availability, and are the basis for all production deployments.
+
+Replica Sets
+CRUD operations
+Aggregate queries
+	
+
+What is a method for distributing data across multiple machines that MongoDB uses to support deployments with very large data sets and high throughput operations?
+
+Sharding
+Aggregation
+Replication
+
+
+
+What does the following code do?
+
+	db.users.find( { status: { $in: [ "P", "D" ] } } )
+
+Retrieves all documents from the users collection where status equals either "P" or “D”.
+Inserts “P” and “D” into the status array.
+Finds all users with title “P” or “D”.
+
+
+
+MONGOOSE
+
+Mongoose is the communication link between Mongo and:
+
+Node	
+JavaScript
+The Client
+
+
+What are the MongoDB commands Mongoose allows us to access?
+	
+CRUD
+DOM
+REST
+
+What command is necessary to run and use Mongoose?
+
+$ npm install mongoose —save
+$ npm install mongoose —CRUD
+$ npm install mongoose 
+
+What is used to define attributes of the documents?
+
+schemas	
+variables
+classes
+
+What must happen before Mongoose can handle CRUD operations?
+
+Define the Mongoose Model
+$ npm install CRUD
+Define CRUD variables
+
+What does the following code do?
+
+	mongoose.connect('mongodb://localhost/myappdatabase');
+	
+Sets up the connection to a MongoDB database.
+Connects Mongoose to the app project.
+Initializes Mongoose functionality.  
+
+
+Once the Schema is created what must be done to use the Schema?
+
+A model to use the Schema needs to be created.
+Install the Schema package.
+Run the following code first: var schema = require('schema');
+	
+	
+What code needs to be added below to make it available to the users in the Node applications?
+
+
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+
+var userSchema;
+
+userSchema.methods.dudify = function() {
+	this.name = this.name + '-dude'; 
+return this.name;
+};
+
+var User = mongoose.model('User', userSchema);
+	
+
+module.exports = User;
+var mongoose = require(‘User’);
+User.schema.require = true;
+
+
+HTML
+
+
+Choose the correct HTML element for the largest heading:
+
+<h1>
+<h6>
+<head>
+
+Choose the correct HTML element to define emphasized text
+
+<em>
+<italic>
+<i>
+
+What is the correct HTML for creating a hyperlink?
+
+<a href="http://www.w3schools.com">W3Schools</a>
+<a url="http://www.w3schools.com">W3Schools.com</a>
+<a name="http://www.w3schools.com">W3Schools.com</a>
+
+
+How can you open a link in a new tab/browser window?
+
+<a href="url" target="_blank">
+<a href="url" target="new">
+<a href="url" new>
+ 
+
+How can you make a numbered list?
+
+<ol>
+<list>
+<ul>
+ 
+
+What is the correct HTML for making a checkbox?
+
+<input type=“checkbox">
+<input type="check">
+<checkbox>
+ 
+
+Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?
+
+alt
+src
+title
+
+
+Which doctype is correct for HTML5?
+
+<!DOCTYPE html>
+<!DOCTYPE HTML5>
+<!DOCTYPE HTML PUBLIC "-http://www.w3.org">
+
+
+CSS 
+
+What is the correct HTML for referring to an external style sheet?
+
+<link rel="stylesheet" type="text/css" href=“mystyle.css">
+<stylesheet>mystyle.css</stylesheet>
+<style src="mystyle.css">
+ 
+
+Which HTML attribute is used to define inline styles?
+
+style
+class
+font
+
+
+Which is the correct CSS syntax? 
+
+body {color: black;}
+body:color=black;
+{body:color=black;}
+
+How do you add a background color for all <h1> elements?
+
+h1 {background-color:#FFFFFF;}
+all.h1 {background-color:#FFFFFF;}
+h1.all {background-color:#FFFFFF;}
+
+What is the correct CSS syntax for making all the <p> elements bold?
+
+p {font-weight:bold;}
+<p style="font-size:bold;">
+p {text-size:bold;}
+
+How do you display hyperlinks without an underline?
+
+a {text-decoration:none;}
+a {underline:none;}
+a {text-decoration:no-underline;}
+
+How do you make the text 18pt?
+
+font-size:18pt;
+style:font-18pt;
+font:18pt;
+ 
+
+How do you display a border with the following sizing?
+
+	The top border = 10 pixels
+	The bottom border = 5 pixels
+	The left border = 20 pixels
+	The right border = 1pixel?
+
+border-width:10px 1px 5px 20px;
+border-width:5px 20px 10px 1px;
+border-width:10px 20px 5px 1px;
+
+
+Which property is used to change the left margin of an element?
+
+margin-left
+indent
+padding-left
+ 
+
+How do you select an element with id "demo"?
+
+#demo
+demo
+.demo
+
+Node:
+
+How are Node based web servers different from traditional web servers?
+
+A Node based server uses a single threaded model and can service a much larger number of requests than a traditional server.
+A Node based server processes requests much faster than a traditional server.
+There is not much difference between the two.
+
+
+Which method of the fs module is used to open a file?
+
+fs.open(path, flags[, mode], callback)
+fs.openFile(path, flags[, mode], callback)
+fs.openPath(path, flags[, mode], callback)
+
+
+Which of the following statements is valid to use an http Node module in a Node based application?
+
+var http = require("http");
+var http = import("http");
+package http;
+
+
+In what order will “Harry” and “Hargrid” be logged to console in the following code:
+
+	var fs = require (‘fs’);
+	fs.writeFile(“../intro.txt”, “Yer’ a wizard”, function(err) {
+		if(err) {
+			console.log(err);
+			return;
+		}
+
+		console.log(“Harry”);
+	});
+	
+	console.log(“Hagrid”);
+
+
+“Hagrid” “Harry”
+“Hagrid”
+“Harry” “Hagrid”
+
+
+What will the following log to console?
+
+	function doWork (workToDo, callback) {
+		console.log(workToDo);
+		if (callback) { callback(); }
+	}
+
+	doWork(“Programming”, function() {
+		doWork(“Coding”, function() {
+			doWork(“Sleeping”);
+		});
+	});
+
+Programming, Coding, Sleeping
+Sleeping
+Sleeping, Coding, Programming
+
+What does npm stands for?
+
+Node Package Manager
+Node Project Manager
+New Project Manager
