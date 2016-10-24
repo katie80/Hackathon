@@ -55,11 +55,15 @@ body {
 	height: 200px;
 	background-color: #218594;
 	font-family: 'Inconsolata', monospace;
-	margin: 0 0 40px;
+	margin-bottom: 30px;
 }
 
 .answers:hover {
 	opacity: 0.7;
+}
+
+.innerAns {
+	margin: 5px;
 }
 
 #answers_div {
