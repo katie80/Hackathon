@@ -21,7 +21,8 @@ $(function() {
 
 		$('.answers').click(function(){
 			clickCount++;
-			$("#answer1").css("box-shadow","0 0 5px 5px #379B4A");
+			clearInterval(timerInterval);
+			$("#answer1").addClass("correct");
 			if($(this).attr('id') === "answer1" && clickCount === 1){
 				updateScore();
 			}
@@ -30,6 +31,8 @@ $(function() {
 
 		$('#next_question_btn').click(function(){
 			currentLevel++;
+			clickCount = 0;
+			$("#answer1").removeClass("correct");
 			$.get('/levels', function(res) {
 					$('#level_div').text(res[currentLevel].title);
 					$('#question').text(res[currentLevel].question);
@@ -68,17 +71,20 @@ function updateScore() {
 
 $('#score').text(score);
 
-var timer = 0;
-var timerInterval = setInterval(() => {
-	if(timer > 99) {
-	 clearInterval(timerInterval);
-	} else {
-		minuteTimer();
-	}
-}, 1000);
 
-function minuteTimer() {
-	timer += 1;
-	$('#timer').text(timer);
-	// $('#fuse').css("width", 100 - timer/0.6 + "%");
-}
+
+	var timer = 0;
+
+	var timerInterval = setInterval(() => {
+		if(timer > 99) {
+		 clearInterval(timerInterval);
+		} else {
+			minuteTimer();
+		}
+	}, 1000);
+
+	function minuteTimer() {
+		timer += 1;
+		$('#timer').text(timer);
+		// $('#fuse').css("width", 100 - timer/0.6 + "%");
+	}
