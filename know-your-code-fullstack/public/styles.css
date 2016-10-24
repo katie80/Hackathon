@@ -55,7 +55,7 @@ body {
 	border: 1px solid black;
 	border-radius: 10px;
 	height: 200px;
-	background-color: #218594;
+	background-color: rgba(238,238,238,0.92);
 	font-family: 'Inconsolata', monospace;
 	margin: 5px;
 }
@@ -76,9 +76,10 @@ body {
 
 pre {
 	text-align: left;
-	margin-top: 5px;
-	font-size: 0.8em;
+	margin-top: 15px;
+	font-size: 0.7em;
 	border-radius: 10px;
+	border: 0;
 }
 	
 #next_question_btn #add_question_btn #edit_question_btn {
