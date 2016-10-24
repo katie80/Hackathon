@@ -1,7 +1,8 @@
 /* jshint esversion:6 */
+
 $(function() {
 	var currentLevel = 0;
-	var clickCount = 0;
+	var clicked = false;
 
 		var optionsArragnment = randomizeOptions();
 		var optionIds = ["answer1", "answer2", "answer3"];
@@ -20,18 +21,18 @@ $(function() {
 
 
 		$('.answers').click(function(){
-			clickCount++;
-			clearInterval(timerInterval);
+			timerInterval = null;
 			$("#answer1").addClass("correct");
-			if($(this).attr('id') === "answer1" && clickCount === 1){
+			if($(this).attr('id') === "answer1" && clicked === false){
 				updateScore();
 			}
-			// Code to move on to next level goes here
+			clicked = true;
 		});
 
 		$('#next_question_btn').click(function(){
 			currentLevel++;
-			clickCount = 0;
+			clicked = false;
+			timer = 0;
 			$("#answer1").removeClass("correct");
 			$.get('/levels', function(res) {
 					$('#level_div').text(res[currentLevel].title);
@@ -62,29 +63,21 @@ function randomizeOptions(){
 var score = 0;
 
 function updateScore() {
-		score += (100 - timer);
-		clearInterval(timerInterval);
-		console.log(score);
-		$('#score').text(score);
-		return;
+	score += (100 - timer);
+	$('#score').text(score);
+	return;
 }
 
 $('#score').text(score);
-//
 
+var timer = 0;
+setInterval(() => {
+	secondCounter();
+}, 1000);
 
-	var timer = 0;
-
-	var timerInterval = setInterval(() => {
-		if(timer > 99) {
-		 clearInterval(timerInterval);
-		} else {
-			minuteTimer();
-		}
-	}, 1000);
-
-	function minuteTimer() {
-		timer += 1;
-		$('#timer').text(timer);
-		// $('#fuse').css("width", 100 - timer/0.6 + "%");
+function secondCounter() {
+	if (timer < 100) {
+	timer += 1;
 	}
+	// $('#timer').text(timer);
+}
