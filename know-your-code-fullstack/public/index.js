@@ -82,12 +82,12 @@ function updateScore() {
 
 function updatePercent() {
 	percent = (correct / total)*100;
-	$('#percent').text(percent.toFixed(1) + "%");
+	$('#percent').text(percent.toFixed(0) + "%");
 	return percent + "%";
 }
 
 $('#score').text(score);
-$('#percent').text(percent.toFixed(1) + "%");
+$('#percent').text(percent.toFixed(0) + "%");
 
 
 function goPoof() {
