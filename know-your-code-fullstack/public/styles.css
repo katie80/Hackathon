@@ -150,11 +150,17 @@ burlywood
 	font-size: 32px;
 	padding: 16px;
 }
+.percent {
+	left: 100px;
+	position: absolute;
+	font-size: 32px;
+	padding: 16px;
+}
 
 .poof {
 	font-size: 72px;
 	margin-top: -50px;
-	color: rgba(0,0,0,0);
+	color: rgba(0,0,0,.5);
 	transition: .2s ease;
 }
 

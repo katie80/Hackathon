@@ -1,4 +1,9 @@
 /* jshint esversion:6 */
+var score = 0;
+var total = 0;
+var correct = 0;
+var timer = 0;
+var percent = 0;
 
 $(function() {
 	var currentLevel = 0;
@@ -16,11 +21,14 @@ $(function() {
 
 
 	$('.innerAns').click(function(){
-		// goPoof();
 		$("#answer1").addClass("correct");
 		if($(this).attr('id') === "answer1" && clicked === false){
 			updateScore();
+			goPoof();
+			correct++;
 		}
+		total++;
+		updatePercent();
 		clicked = true;
 	});
 
@@ -64,7 +72,6 @@ function randomizeOptions(){
 	$('#option3').attr("id", optionIds[optionsArragnment[2]]);
 }
 
-var score = 0;
 
 function updateScore() {
 	score += (100 - timer);
@@ -73,17 +80,27 @@ function updateScore() {
 	return;
 }
 
+function updatePercent() {
+	percent = (correct / total)*100;
+	$('#percent').text(percent.toFixed(1) + "%");
+	return percent + "%";
+}
+
 $('#score').text(score);
+$('#percent').text(percent.toFixed(1) + "%");
 
 
 function goPoof() {
 	var newDiv = $('#score').clone();
 	newDiv.removeAttr("id");
 	$('#score-col').append(newDiv);
-	newDiv.addClass('poof');
+	newDiv.slideUp("fast");
+	// newDiv.addClass('poof');
+	setTimeout(function() { 
+       newDiv.remove();
+     }, 1000);
 }
 
-var timer = 0;
 setInterval(() => {
 	secondCounter();
 }, 100);
