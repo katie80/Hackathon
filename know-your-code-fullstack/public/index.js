@@ -16,7 +16,7 @@ $(function() {
 
 
 	$('.innerAns').click(function(){
-		timerInterval = null;
+		// goPoof();
 		$("#answer1").addClass("correct");
 		if($(this).attr('id') === "answer1" && clicked === false){
 			updateScore();
@@ -40,7 +40,9 @@ $(function() {
 		});
 	});
 });
-	
+
+
+
 function randomizeOptions(){
 	$('#answer1').attr("id", "option1");
 	$('#answer2').attr("id", "option2");
@@ -66,14 +68,20 @@ var score = 0;
 
 function updateScore() {
 	score += (100 - timer);
-
-	$('score').clone(score);
-	$("#score").addClass("poof");
+	$('#score').text(score);
 
 	return;
 }
 
 $('#score').text(score);
+
+
+function goPoof() {
+	var newDiv = $('#score').clone();
+	newDiv.removeAttr("id");
+	$('#score-col').append(newDiv);
+	newDiv.addClass('poof');
+}
 
 var timer = 0;
 setInterval(() => {
@@ -84,5 +92,5 @@ function secondCounter() {
 	if (timer < 99) {
 	timer += 1;
 	}
-	// $('#timer').text(timer);
+	$('#timer').text(timer);
 }

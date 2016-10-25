@@ -134,6 +134,10 @@ burlywood
 	font-family: 'Inconsolata', monospace;
 }
 
+.footer-container {
+	position: relative;
+}
+
 .fuse {
 	background-color: #6F5C43;
 	height: 8px;
@@ -142,15 +146,16 @@ burlywood
 }
 
 .score {
+	position: absolute;
 	font-size: 32px;
 	padding: 16px;
 }
 
 .poof {
-	font-size: 64px;
+	font-size: 72px;
 	margin-top: -50px;
 	color: rgba(0,0,0,0);
-	transition: .5s ease;
+	transition: .2s ease;
 }
 
 .timer {
