@@ -66,7 +66,10 @@ var score = 0;
 
 function updateScore() {
 	score += (100 - timer);
-	$('#score').text(score);
+
+	$('score').clone(score);
+	$("#score").addClass("poof");
+
 	return;
 }
 
@@ -81,5 +84,5 @@ function secondCounter() {
 	if (timer < 99) {
 	timer += 1;
 	}
-	$('#timer').text(timer);
+	// $('#timer').text(timer);
 }
